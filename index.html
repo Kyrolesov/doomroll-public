@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DoomRoll — Privacy Policy</title>
+  <meta name="description" content="Privacy policy for DoomRoll, a watchOS app. DoomRoll collects no personal data beyond anonymous purchase records processed by RevenueCat.">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+      color: #1d1d1f;
+      background: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { color: #ececec; background: #161618; }
+      a { color: #6db3ff; }
+      code { background: #2a2a2e; }
+      hr { border-color: #333; }
+      .meta { color: #9a9a9f; }
+    }
+    h1 { font-size: 2rem; line-height: 1.2; margin-bottom: 0.25rem; }
+    h2 { font-size: 1.3rem; margin-top: 2.25rem; }
+    .meta { color: #6e6e73; font-size: 0.95rem; margin: 0; }
+    a { color: #0066cc; }
+    code { background: #f2f2f4; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+    hr { border: none; border-top: 1px solid #e0e0e0; margin: 2.5rem 0; }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.4rem 0; }
+    .lead { font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+
+  <h1>DoomRoll — Privacy Policy</h1>
+  <p class="meta"><strong>Last updated:</strong> 2026-10-19 &nbsp;·&nbsp; <strong>Effective date:</strong> 2026-10-18</p>
+
+  <hr>
+
+  <h2>1. Who we are</h2>
+  <p>DoomRoll is a watchOS-only app developed by <strong>danbely</strong> (sole developer, EU/Poland).</p>
+  <p>Contact for privacy questions and GDPR data-subject requests:<br>
+  <a href="mailto:dzianis.bely@proton.me">dzianis.bely@proton.me</a></p>
+
+  <h2>2. Summary</h2>
+  <p class="lead"><strong>DoomRoll does not collect, store, or transmit any personal data, with one narrow exception: purchases.</strong> The app's in-app purchases are processed through RevenueCat, a purchases infrastructure provider. When the app starts or comes back to the screen after a while, when you buy or restore, when the App Store reports a change to a purchase (a refund, or Family Sharing), and when it fetches its own configuration, the app's purchase client sends RevenueCat an anonymous, app-generated identifier, your purchase history for this app, and the technical details any app request carries: your watch model, watchOS and app version, language and storefront region, a per-vendor device identifier (IDFV), and your IP address. Nothing you type or roll is part of it. Outside of the purchase system the app makes no outbound network connections. There is no backend server of ours, no user account, no advertising, no analytics SDK beyond RevenueCat's purchase records, and no third-party trackers.</p>
+
+  <h2>3. What stays on your device</h2>
+  <p>The app stores the following information <strong>locally on your Apple Watch only</strong>, in a shared app-group container. It is shared with exactly one other process: DoomRoll's own watch-face complication, which reads it and writes the dice it rolls from the face (watchOS 11 and later). No other app can read it, and nothing in it leaves the watch.</p>
+  <ul>
+    <li><strong>Preset names.</strong> When you create a Spinner Wheel or Spinner Strip preset (e.g. "Friend Group" with names "Alex, Sam, Jordan"), those names live in a JSON file in that container. They never leave the device. See <em>Complications</em> below for the one place they can become visible.</li>
+    <li><strong>History.</strong> The 50 most recent results, each a short line such as "D20: 17" or "Wheel: Alex", with a timestamp and the mode. Pointer results are never recorded — a pointing angle carries no meaning to store. History is kept only while you own the Extended Pack: without it, results are not recorded at all. Answers you get from Siri are recorded the same way. Deleted on demand from <em>Settings → Clear history</em>.</li>
+    <li><strong>Last result on the watch face.</strong> The latest die rolled from the complication (watchOS 11 and later) or answer given by Siri — a mode and a result, nothing about you — kept for everyone, only so the complication can show it. Removed by <em>Settings → Clear history</em>, and by deleting the app.</li>
+    <li><strong>Dice session log.</strong> If you agree when a die asks, dice rolls are grouped into "sittings" so you can see how a game went. At most 10 sittings of 100 rolls each are kept, oldest dropped first. Recording is off until you say yes, a sitting ends 30 minutes after its last roll, and "End current session" in the log ends it immediately.</li>
+    <li><strong>Your setup choices.</strong> How many dice you throw and with what modifier, per die; an elimination round in progress on a preset; which screen you were last on, so the app can reopen there; and how many results have passed since the app last showed its upgrade banner.</li>
+    <li><strong>Settings preferences.</strong> Quick Mode, sound effects, haptic intensity, Smooth Dice and its maximum run, "Resume last used", "Names on watch face", and the app's language if you have chosen one instead of following your watch. Stored via the system <code>UserDefaults</code> API. None of these values identify you.</li>
+    <li><strong>In-app purchase entitlements.</strong> Which paid feature packs you have unlocked. This is resolved on every launch from RevenueCat (see section 6) — we don't maintain an "is unlocked" flag of our own beyond RevenueCat's cache. A copy of the two yes/no answers is mirrored into the shared container purely so the complication, which cannot reach the purchase system, knows what to offer.</li>
+  </ul>
+  <p>These items are encrypted at rest by Apple's Data Protection (the standard watchOS encryption for app sandbox data).</p>
+  <p>If you have iCloud Backup enabled in your Apple ID, these local files are included in your encrypted iCloud Backup — exactly as you'd expect for any app's user-supplied content. We don't control or have access to that backup; only Apple does, and only to deliver it back to you on a new device.</p>
+
+  <h2>3a. Complications and your watch face</h2>
+  <p>DoomRoll can show your last result on the watch face. A watch face is visible to anyone who can see your wrist, so a preset name shown there — "Wheel: Alex" — is the one way information you typed can be read by someone else.</p>
+  <p>Because of that, <strong>hiding names is the default</strong>: the complication shows "Wheel: ●●●" until you turn on <em>Settings → Privacy → Names on watch face</em>. Other modes are unaffected — a coin, a die or a yes/no answer says nothing about anyone. The setting changes what is drawn immediately, and turning it off removes names from the face right away.</p>
+
+  <h2>4. What we never do</h2>
+  <ul>
+    <li><strong>No analytics.</strong> No Firebase, Sentry, Crashlytics, Mixpanel, Amplitude, Datadog, or any other tracking SDK. (Apple's built-in App Store Connect crash reporting is opt-in by you at the device level and does not flow through DoomRoll's code.)</li>
+    <li><strong>No advertising.</strong> No IDFA, no ad SDKs, no marketing pixels.</li>
+    <li><strong>Network calls only for the purchase system.</strong> The only outbound traffic is between your watch and the purchase system: Apple's App Store, and RevenueCat's service (api.revenuecat.com), which the app contacts to learn what you own — when it opens or returns to the screen, when you buy or restore, when the App Store reports a change to a purchase, and to fetch the purchase client's own configuration. None of the app's actual content — results, history, presets, settings — is ever transmitted anywhere.</li>
+    <li><strong>No social-graph access.</strong> We don't read your contacts, your photos, your location, your microphone, your health data, or any other system-managed information.</li>
+  </ul>
+
+  <h2>5. Permissions we request</h2>
+  <ul>
+    <li><strong>Motion (CoreMotion).</strong> Shaking your wrist produces a result in every mode, and shaking the dice harder throws them harder, so the app reads accelerometer data while a mode is on screen. It is read frame by frame to measure one gesture and its strength. Nothing is recorded, stored or transmitted, and the app never reads motion for any other purpose — no step counts, no activity, no health data.</li>
+  </ul>
+  <p>That's the only permission. We don't request location, contacts, photos, health data, or any other sensitive scope.</p>
+  <p>Two things that look like permissions but aren't. <strong>Dictation:</strong> when you add names to a preset you type into a standard system text field, and if you dictate instead, the microphone is opened and handled by watchOS — the app receives only the finished text. <strong>Siri:</strong> DoomRoll offers three voice shortcuts ("flip a coin with DoomRoll", and similar). Siri does the listening; the app is handed a request and returns a spoken answer. In neither case does DoomRoll access the microphone or receive audio.</p>
+
+  <h2>6. In-app purchases</h2>
+  <p>DoomRoll offers three one-time, non-consumable in-app purchases — the Boardgames Pack, the Extended Pack, and the Full Pack that contains both. There is no subscription. Payment itself is handled by Apple; we never see your payment information. Purchase management is handled by <a href="https://www.revenuecat.com/privacy">RevenueCat</a>, acting as our processor: it receives a random, app-generated identifier (not your name, email, or Apple ID) together with the purchase records for this app, uses them to tell the app which packs are unlocked and to show us aggregate sales statistics, and does not sell or share them. All three packs support Family Sharing, which means Apple — not us — decides which members of your family group are entitled; we are told only yes or no.</p>
+  <p>You can restore previous purchases at any time with <em>Settings → Restore purchases</em>, or with the <em>Restore</em> button on the unlock screen. After reinstalling DoomRoll, or on a new watch, do this once: a new installation starts as a new anonymous customer, so it doesn't know your packs until you restore. We don't keep a copy of your receipt; RevenueCat re-derives your entitlements from the App Store record.</p>
+
+  <h2>7. Children</h2>
+  <p>DoomRoll is rated 4+ and contains no objectionable content. We collect no personal data about anyone, including children under 13 / 16 (depending on jurisdiction), and the app makes no attempt to identify the user; the only data path out of the watch is the anonymous purchase record described in section 6. If you believe a child's data has somehow ended up in our hands, contact us and we'll investigate.</p>
+
+  <h2>8. Your rights (GDPR / EU)</h2>
+  <p>Because we collect no personal data beyond the anonymous purchase record, most GDPR data-subject rights have no targets. To exercise the rights we <em>can</em> help with:</p>
+  <ul>
+    <li><strong>Right to deletion.</strong> <em>Settings → Clear history</em> wipes the history file and the last result kept for the watch face. <em>Settings → Reset all settings</em> clears every preference. Deleting a preset removes its names. Uninstalling the app removes everything on the watch, including the session log. One thing does survive an uninstall: RevenueCat keeps the anonymous purchase record so that a reinstall can restore your packs. Email us and we will have it deleted.</li>
+    <li><strong>Right to access.</strong> All your data is on your watch; you already have access. There is no server-side store to query.</li>
+    <li><strong>Right to data portability.</strong> All data is in plain JSON files inside the app's sandbox. We don't expose an export feature in-app today; if you need a copy, contact us at the email above.</li>
+  </ul>
+  <p>You also have the right to lodge a complaint with your data protection authority (UODO in Poland; equivalents in other EU member states).</p>
+
+  <h2>9. Changes</h2>
+  <p>We may update this policy when the app's behaviour changes (e.g. if a future version adds an opt-in cloud-sync feature). When we do, we'll update the "Last updated" date above and notify users via the next App Store update's release notes. Your continued use of the app after a change indicates acceptance.</p>
+
+  <h2>10. Contact</h2>
+  <p><a href="mailto:dzianis.bely@proton.me">dzianis.bely@proton.me</a></p>
+
+</body>
+</html>
